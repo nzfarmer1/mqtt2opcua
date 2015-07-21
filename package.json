@@ -1,0 +1,37 @@
+{
+  "name": "mqtt2opcua",
+  "description": "MQTT <=> OPCUA Bridge",
+  "version": "0.0.3",
+  "dependencies": {
+    "node-opcua": ">=0.0.47",
+    "mqtt": "~1.1.4",
+    "Qlobber":  "",
+    "merge":""
+  },
+  "keywords": [
+    "mqtt",
+    "opcua",
+    "telemetry"
+  ],
+  "contributors": [
+    "Andrew McClure <andrew@agsense.co.nz> (http://agsense.co.nz)"
+  ],
+  "maintainers": [
+    "Andrew McClure <andrew@agsense.co.nz>"
+  ],
+  "bugs": {
+	"url": "https://github.com/nzfarmer1/mqtt2opcua/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nzfarmer1/mqtt2opcua"
+  },
+  "homepage": "https://github.com/nzfarmer1",
+  "main": "mqtt2opcua.js",
+  "scripts": {
+    "test": "examples/run.js"
+  },
+  "author": "Andrew McClure",
+  "license": "MIT",
+  "devDependencies": {}
+}
