@@ -1,4 +1,4 @@
-<b> MQTT OPCUA </b>
+<b> Bi Directional MQTT to OPCUA Bridge </b>
 
 Expose MQTT topics to an OPCUA server via folders. Supports read/write. 
 

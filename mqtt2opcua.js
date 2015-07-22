@@ -135,11 +135,11 @@ var run = function (options) {
                             dataType: handler(payload).dataType,
                             value: {
                                 get: function () {
-                                    debug("Get " + topic);
+                                    debug("OPCUA Get: " + topic);
                                     return new opcua.Variant(handler(persist[topic]));
                                 },
                                 set: function (variant) {
-                                    debug("Set " + topic);
+                                    debug("OPCUA Set: " + topic);
                                     try {
                                         var bhandler = bhandlers.match(topic);
                                         persist[topic] = bhandler ? bhandler(variant) : variant.value;

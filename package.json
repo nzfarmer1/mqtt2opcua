@@ -1,7 +1,7 @@
 {
   "name": "mqtt2opcua",
   "description": "MQTT <=> OPCUA Bridge",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "node-opcua": ">=0.0.47",
     "mqtt": "~1.1.4",
