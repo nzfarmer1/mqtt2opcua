@@ -25,7 +25,7 @@ Todo: Add authentication
 
 For configuration options and formatting of payloads, see handlers example below.
 
-<code>
+<pre>
 
 var  mqtt2opc = require("../mqtt2opcua").run;
 var  Events = require('events').EventEmitter;
@@ -62,4 +62,4 @@ options = {
 
 var server = new mqtt2opc(options);
 
-</code>
+</pre>
