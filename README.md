@@ -4,17 +4,16 @@ Expose MQTT topics to an OPCUA server via folders. Supports read/write.
 
 Usage:
 
-git clone https://github.com/nzfarmer1/mqtt2opcua
-cd mqtt2opcua
-npm link
-(view/edit examples/run.sh)
-node examples/run.js
+- git clone https://github.com/nzfarmer1/mqtt2opcua
+- cd mqtt2opcua
+- npm link (view/edit examples/run.sh)
+- node examples/run.js
 
 node creates an OPC server that:
 
 1. Connects to an MQTT broker
 2. Subscribes to '#' or a predefined set of topics
-3. On 1st Message of an unseen topic it creates the folder paths and node (last part of path) with nodeId  s=<topic>
+3. On 1st Message of an unseen topic it creates the folder paths and node (last part of path) with nodeId  s=topic
 4. On all onMessage calls, it keeps track of the topic's payload
 5. On Set requests it publishes the raw value from the OPCUA client
 6. On Get requests it returns the formatted persistant payload
