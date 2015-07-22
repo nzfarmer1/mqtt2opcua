@@ -6,7 +6,7 @@ Usage:
 
 - git clone https://github.com/nzfarmer1/mqtt2opcua
 - cd mqtt2opcua
-- npm link (view/edit examples/run.sh)
+- npm link (view/edit examples/run.js)
 - node examples/run.js
 
 node creates an OPC server that:
