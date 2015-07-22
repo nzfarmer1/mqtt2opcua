@@ -5,8 +5,8 @@
   "dependencies": {
     "node-opcua": ">=0.0.47",
     "mqtt": "~1.1.4",
-    "Qlobber":  "",
-    "merge":""
+    "Qlobber": "",
+    "merge": ""
   },
   "keywords": [
     "mqtt",
@@ -20,7 +20,7 @@
     "Andrew McClure <andrew@agsense.co.nz>"
   ],
   "bugs": {
-	"url": "https://github.com/nzfarmer1/mqtt2opcua/issues"
+    "url": "https://github.com/nzfarmer1/mqtt2opcua/issues"
   },
   "repository": {
     "type": "git",
@@ -33,5 +33,8 @@
   },
   "author": "Andrew McClure",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {},
+  "directories": {
+    "example": "examples"
+  }
 }
