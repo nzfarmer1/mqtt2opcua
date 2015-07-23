@@ -9,7 +9,6 @@ backward = new Events();
 // Examples below
 
 forward.on("$SYS/broker/bytes/#", function(payload) {
-
     return {
             dataType: "Int32",
             value: parseInt(payload)
@@ -17,7 +16,10 @@ forward.on("$SYS/broker/bytes/#", function(payload) {
 });
 
 backward.on("$SYS/broker/bytes/#", function(variant) {
-    return variant.value;
+            return {
+                topic:variant.topic,
+                payload:variant.value
+            };
 });
 
 options = {

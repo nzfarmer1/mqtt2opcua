@@ -57,7 +57,10 @@ var run = function (options) {
 
     if (!bhandlers.hasDefault()) {
         bhandlers.on("#", function (variant) { // Default backward handler (OPCUA -> MQTT)
-            return variant.value;
+            return {
+                topic:variant.topic,
+                payload:variant.value
+            };
         });
     }
 
@@ -140,9 +143,11 @@ var run = function (options) {
                                 set: function (variant) {
                                     debug("OPCUA Set: " + topic);
                                     try {
-                                        var bhandler = bhandlers.match(topic);
-                                        persist[topic] = bhandler ? bhandler(variant) : variant.value;
-                                        server.mqtt.publish(topic,persist[topic]);
+                                        variant.topic=topic;
+                                        var bhandler = bhandlers.match(topic),
+                                            message  = bhandler(variant);
+                                        persist[topic] = message.payload;
+                                        server.mqtt.publish(message.topic,message.payload);
                                     } catch(e){
                                         console.error(e);
                                     }

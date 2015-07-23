@@ -45,7 +45,10 @@ forward.on("$SYS/broker/bytes/#", function(payload) {
 });
 
 backward.on("$SYS/broker/bytes/#", function(variant) {
-    return variant.value;
+            return {
+                topic:variant.topic,
+                payload:variant.value
+            };
 });
 
 options = {
@@ -56,7 +59,7 @@ options = {
     debug:true,
     forward:forward,	// data converter - mqtt -> opcua
     backward:backward,	// data converter - opcua -> mqtt
-    //topics:['#','$SYS/#'] // Customize to override (these are the default so uncessary)
+    //topics:['#','$SYS/broker/#'] // Customize to override. These are the default so uncessary.
 };
 
 var server = new mqtt2opc(options);
