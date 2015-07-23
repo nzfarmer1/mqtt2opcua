@@ -147,7 +147,10 @@ var run = function (options) {
                                         var bhandler = bhandlers.match(topic),
                                             message  = bhandler(variant);
                                         persist[topic] = message.payload;
-                                        server.mqtt.publish(message.topic,message.payload);
+                                        if (message.hasOwnProperty("topic") &&
+                                            message.hasOwnProperty("payload")){
+                                                server.mqtt.publish(message.topic,message.payload);
+                                        }
                                     } catch(e){
                                         console.error(e);
                                     }
