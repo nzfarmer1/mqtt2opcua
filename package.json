@@ -1,17 +1,18 @@
 {
   "name": "mqtt2opcua",
-  "description": "MQTT <=> OPCUA Bridge",
-  "version": "0.0.4",
+  "description": "Bi-directional MQTT OPCUA bridge",
+  "version": "0.0.5",
   "dependencies": {
     "node-opcua": ">=0.0.47",
     "mqtt": "~1.1.4",
-    "Qlobber": "",
-    "merge": ""
+    "Qlobber": ""
   },
   "keywords": [
     "mqtt",
     "opcua",
-    "telemetry"
+    "scada",
+    "telemetry",
+    "iot"
   ],
   "contributors": [
     "Andrew McClure <andrew@agsense.co.nz> (http://agsense.co.nz)"

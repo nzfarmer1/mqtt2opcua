@@ -38,7 +38,6 @@ backward = new Events();
 // Examples below
 
 forward.on("$SYS/broker/bytes/#", function(payload) {
-
     return {
             dataType: "Int32",
             value: parseInt(payload)
@@ -57,7 +56,7 @@ options = {
     debug:true,
     forward:forward,	// data converter - mqtt -> opcua
     backward:backward,	// data converter - opcua -> mqtt
-    //topics:['#','$SYS/broker/#'] // Customize to override. These are the default so uncessary.
+    //topics:['#','$SYS/#'] // Customize to override (these are the default so uncessary)
 };
 
 var server = new mqtt2opc(options);

@@ -3,8 +3,7 @@
 var opcua = require("node-opcua"),
     mqtt = require('mqtt'),
     Events = require('events').EventEmitter,
-    Qlobber = require('qlobber').Qlobber,
-    merge = require('merge');
+    Qlobber = require('qlobber').Qlobber;
 
 
 function Matcher(handlers) {
