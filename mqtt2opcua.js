@@ -74,8 +74,9 @@ var run = function (options) {
     }
 
     // Let's create an instance of OPCUAServer
+
     var server = new opcua.OPCUAServer({
-        host: options.opcHost || "127.0.0.1",
+        hostname: options.opcHost || "127.0.0.1",
         port: options.opcPort || 4334, // the port of the listening socket of the server
         resourcePath: options.opcName || "UA/MQTT Bridge Server", // this path will be added to the endpoint resource name
         buildInfo : {
@@ -167,8 +168,14 @@ var run = function (options) {
         }
 
 
-        server.start(function () {
-            console.log("OPC Server is now listening ... ( press CTRL+C to stop)");
+        server.start(function (err) {
+	    if (err){
+	       console.error(err);
+	       process.exit(1);
+	    }
+
+	    var endpointUrl = server.endpoints[0].endpointDescriptions()[0].endpointUrl;
+            console.log("OPC Server is now available at: " + endpointUrl +  " ( press CTRL+C to stop)");
 
             var mqttURL = 'mqtt://' + (options.mqttHost || "localhost") + ":" + (options.mqttPort || "1883");
 
@@ -178,7 +185,7 @@ var run = function (options) {
             }
 
             server.mqtt.on('connect', function () {
-                console.log("MQTT Connected on " + mqttURL);
+                console.log("MQTT Connected to: %s\n", mqttURL);
                 server.mqtt.subscribe(options.topics || ['$SYS/#', '#']);
             });
 
