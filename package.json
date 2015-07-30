@@ -1,11 +1,11 @@
 {
   "name": "mqtt2opcua",
   "description": "Bi-directional MQTT OPCUA bridge",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "dependencies": {
     "node-opcua": ">=0.0.47",
     "mqtt": "~1.1.4",
-    "Qlobber": ""
+    "qlobber": ""
   },
   "keywords": [
     "mqtt",
