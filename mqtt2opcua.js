@@ -5,6 +5,12 @@ var opcua = require("node-opcua"),
     Events = require('events').EventEmitter,
     Qlobber = require('qlobber').Qlobber;
 
+function debug(s) {
+    if (options.debug) {
+        console.log(s);
+    }
+}
+
 
 function Matcher(handlers) {
     Events.call(this);
@@ -21,13 +27,15 @@ function Matcher(handlers) {
 
 Matcher.prototype = Object.create(Events.prototype);
 Matcher.prototype.match = function (topic) {
+    if (this._events.hasOwnProperty(topic)){
+        return this._events[topic];
+    }
     var matches = this.matcher.match(topic);
     return matches.length ? matches.pop() : null;
 };
 
 Matcher.prototype.init = function () {
-    var e;
-    for (e in this._events) {
+    for (var e in this._events) {
         if (this._events.hasOwnProperty(e)) {
             this.matcher.add(e, this._events[e]);
         }
@@ -54,8 +62,8 @@ var run = function (options) {
     }
 
     // Default backward handler
-
     if (!bhandlers.hasDefault()) {
+        
         bhandlers.on("#", function (variant) { // Default backward handler (OPCUA -> MQTT)
             return {
                 topic:variant.topic,
@@ -67,11 +75,6 @@ var run = function (options) {
     fhandlers.init();
     bhandlers.init();
 
-    function debug(s) {
-        if (options.debug) {
-            console.log(s);
-        }
-    }
 
     // Let's create an instance of OPCUAServer
 
@@ -92,7 +95,8 @@ var run = function (options) {
         debug("OPC Server Initialized");
         var persist = {},    // New persistent store
             nodes = {},
-            paths = {};
+            paths = {},
+            flagged = false
 
         function onMessage(topic, payload) {
 
@@ -108,6 +112,7 @@ var run = function (options) {
 
             if (nodes.hasOwnProperty(topic)) {
                 persist[topic] = handler(payload).value; // Note: need to handle null responses
+                flagged = false;
                 return;
             }
 
@@ -139,19 +144,25 @@ var run = function (options) {
                             value: {
                                 get: function () {
                                     debug("OPCUA Get: " + topic);
-                                    return new opcua.Variant(handler(persist[topic]));
-                                },
+                                    return (!flagged) ?
+                                        new opcua.Variant(handler(persist[topic])) :
+                                            opcua.StatusCodes.BadCommunicationError;
+                                    },
                                 set: function (variant) {
                                     debug("OPCUA Set: " + topic);
                                     try {
                                         variant.topic=topic;
                                         var bhandler = bhandlers.match(topic),
                                             message  = bhandler(variant);
-                                        persist[topic] = message.payload;
+                                        if (!options.roundtrip)
+                                            persist[topic] = message.payload;
+                                        else
+                                            flagged = true;
                                         if (message.hasOwnProperty("topic") &&
-                                            message.hasOwnProperty("payload")){
-                                                server.mqtt.publish(message.topic,message.payload);
-                                        }
+                                            message.hasOwnProperty("payload")) {
+                                                server.mqtt.publish(message.topic.toString(),
+                                                                    message.payload.toString());
+                                            }
                                     } catch(e){
                                         console.error(e);
                                     }
