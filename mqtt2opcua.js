@@ -5,8 +5,13 @@ var opcua = require("node-opcua"),
     Events = require('events').EventEmitter,
     Qlobber = require('qlobber').Qlobber;
 
+
+var  _debug  = false;
+
+
+
 function debug(s) {
-    if (options.debug) {
+    if (_debug) {
         console.log(s);
     }
 }
@@ -47,6 +52,8 @@ Matcher.prototype.hasDefault = function () {
 };
 
 var run = function (options) {
+
+   _debug = options.debug || false;
 
  // Forward and backward handlers - see below for example
     var fhandlers = new Matcher(options.forward),
@@ -96,7 +103,7 @@ var run = function (options) {
         var persist = {},    // New persistent store
             nodes = {},
             paths = {},
-            flagged = false
+            flagged = {};
 
         function onMessage(topic, payload) {
 
@@ -112,7 +119,7 @@ var run = function (options) {
 
             if (nodes.hasOwnProperty(topic)) {
                 persist[topic] = handler(payload).value; // Note: need to handle null responses
-                flagged = false;
+                flagged[topic] = false;
                 return;
             }
 
@@ -135,6 +142,7 @@ var run = function (options) {
                 } else {
                     debug("Creating folders for new topic: " + topic);
                     persist[topic] = handler(payload).value;
+                    flagged[topic] = false;
                     try {
                         nodes[topic] = server.engine.addVariableInFolder(node, {
                             browseName: path[sub],
@@ -144,7 +152,7 @@ var run = function (options) {
                             value: {
                                 get: function () {
                                     debug("OPCUA Get: " + topic);
-                                    return (!flagged) ?
+                                    return (!flagged[topic]) ?
                                         new opcua.Variant(handler(persist[topic])) :
                                             opcua.StatusCodes.BadCommunicationError;
                                     },
@@ -154,12 +162,13 @@ var run = function (options) {
                                         variant.topic=topic;
                                         var bhandler = bhandlers.match(topic),
                                             message  = bhandler(variant);
-                                        if (!options.roundtrip)
-                                            persist[topic] = message.payload;
-                                        else
-                                            flagged = true;
                                         if (message.hasOwnProperty("topic") &&
                                             message.hasOwnProperty("payload")) {
+                                                if (!options.roundtrip)
+                                                    persist[topic] = message.payload;
+                                                else
+                                                    flagged[topic] = true;
+                                                debug("MQTT Publish: " + message.topic.toString() + " (" + message.payload.toString().substr(0,8) + ")" )
                                                 server.mqtt.publish(message.topic.toString(),
                                                                     message.payload.toString());
                                             }
