@@ -18,6 +18,8 @@ node creates an OPC server that:
 5. On Set requests it publishes the raw value from the OPCUA client
 6. On Get requests it returns the formatted persistant payload
 
+PLEASE REMEMBER TO CHECK FOR UPDATES REGULARLY!
+
 
 <img src="mqtt2opcua.png"/>
 
@@ -57,11 +59,20 @@ options = {
     mqttHost:"localhost",
     mqttPort:"1883",
     debug:true,
+    roundtrip:false,    // Set to true if you wish to enforce the integrity of round trip communications	
     forward:forward,	// data converter - mqtt -> opcua
     backward:backward,	// data converter - opcua -> mqtt
-    //topics:['#','$SYS/broker/#'] // Customize to override. These are the default so uncessary.
+    //topics:['#','$SYS/#'] // Customize to override. These are the default so uncessary.
 };
 
 var server = new mqtt2opc(options);
 
 </pre>
+
+Please feel free to fork and improve.
+
+<i>
+Andrew McClure, Director <a href="http://agsense.co.nz">AgSense</a> -  Bringing I.o.T to NZ Agriculture
+</i>
+
+<b><a href="https://payment.swipehq.com/?product_id=EB82DA1340C7E">Koha (Donation)</a> - If you like our work and would like to make a small donation to help us continue</b>
