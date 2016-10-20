@@ -23,7 +23,7 @@ backward.on("$SYS/broker/bytes/#", function(variant) {
 });
 
 options = {
-    opcName:"MQTT Local",
+    opcName:"MQTT_Local",
     opcHost:"localhost",
     opcPort:"4335",
     mqttHost:"localhost",
