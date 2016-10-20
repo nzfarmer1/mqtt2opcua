@@ -128,7 +128,7 @@ var run = function (options) {
                 top  = (path[0] || path[1]); // Cater for paths starting with "/"
 
             node = paths[top] = (paths.hasOwnProperty(top)) ? paths[top] :
-                                server.engine.createFolder("ObjectsFolder", { browseName: top});
+                                server.engine.addressSpace.addFolder("ObjectsFolder", { browseName: top});
 
             for (sub in path) {
                 if (sub == 0 |!path.hasOwnProperty(sub)) {
@@ -138,13 +138,14 @@ var run = function (options) {
                 top += "/" + path[sub];
                 if (topic !== top) {
                     node = paths[top] = (paths.hasOwnProperty(top)) ? paths[top] :
-                                        server.engine.createFolder(node, { browseName: path[sub]});
+                                        server.engine.addressSpace.addFolder(node, { browseName: path[sub]});
                 } else {
                     debug("Creating folders for new topic: " + topic);
                     persist[topic] = handler(payload).value;
                     flagged[topic] = false;
                     try {
-                        nodes[topic] = server.engine.addVariableInFolder(node, {
+                        nodes[topic] = server.engine.addressSpace.addVariable({
+                            componentOf: node,
                             browseName: path[sub],
                             path: topic,
                             nodeId: "s=" + topic,
