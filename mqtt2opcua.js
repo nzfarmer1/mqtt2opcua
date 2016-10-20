@@ -62,8 +62,8 @@ var run = function (options) {
     if (!fhandlers.hasDefault()) {
         fhandlers.on("#", function (payload) { // Default backward handler (MQTT -> OPCUA)
             return {
-                dataType: "Double",
-                value: parseFloat(payload),
+                dataType: "String",
+                value: String(payload),
             };
         });
     }
@@ -200,7 +200,7 @@ var run = function (options) {
 
             var mqttURL = 'mqtt://' + (options.mqttHost || "localhost") + ":" + (options.mqttPort || "1883");
 
-            if (!(server.mqtt = mqtt.connect(mqttURL))) {
+            if (!(server.mqtt = mqtt.connect(mqttURL,{ username: options.mqttUsername, password: options.mqttPassword}))) {
                 console.error("MQTT Unable to connect");
                 process.exit(1);
             }
