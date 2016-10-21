@@ -23,11 +23,13 @@ backward.on("$SYS/broker/bytes/#", function(variant) {
 });
 
 options = {
-    opcName:"MQTT Local",
+    opcName:"MQTT_Local",
     opcHost:"localhost",
     opcPort:"4335",
     mqttHost:"localhost",
-    mqttPort:"1883",
+    mqttPort:"8324",
+    mqttUsername:"opcua",
+    mqttPassword:"secretpassword",
     debug:true,
     roundtrip:false,	// set to true to limit updates to onMessage (i.e. validate an accuator is set)
     forward:forward,	// data converter - mqtt -> opcua
