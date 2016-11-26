@@ -32,7 +32,7 @@ function Matcher(handlers) {
 
 Matcher.prototype = Object.create(Events.prototype);
 Matcher.prototype.match = function (topic) {
-    if (this._events.hasOwnProperty(topic)){
+    if (Object.prototype.hasOwnProperty.call(this._events, topic)){
         return this._events[topic];
     }
     var matches = this.matcher.match(topic);
@@ -41,7 +41,7 @@ Matcher.prototype.match = function (topic) {
 
 Matcher.prototype.init = function () {
     for (var e in this._events) {
-        if (this._events.hasOwnProperty(e)) {
+        if (Object.prototype.hasOwnProperty.call(this._events, e)) {
             this.matcher.add(e, this._events[e]);
         }
     }
