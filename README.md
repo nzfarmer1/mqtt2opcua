@@ -18,6 +18,11 @@ node creates an OPC server that:
 5. On Set requests it publishes the raw value from the OPCUA client
 6. On Get requests it returns the formatted persistant payload
 
+
+Note:
+
+Recently upgraded to support MQTT auth and to remove spaces from OPCUA name in example
+
 PLEASE REMEMBER TO CHECK FOR UPDATES REGULARLY!
 
 
