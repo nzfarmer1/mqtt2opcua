@@ -15,7 +15,9 @@
     "iot"
   ],
   "contributors": [
-    "Andrew McClure <andrew@agsense.co.nz> (http://agsense.co.nz)", hoblins <hoblins@users.noreply.github.com>, accyroy <accyroy@gmail.com> 
+    "Andrew McClure <andrew@agsense.co.nz> (http://agsense.co.nz)",
+    "hoblins <hoblins@users.noreply.github.com>", 
+    "accyroy <accyroy@gmail.com>"
   ],
   "maintainers": [
     "Andrew McClure <andrew@agsense.co.nz>"
