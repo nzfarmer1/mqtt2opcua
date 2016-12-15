@@ -1,3 +1,21 @@
+commit 74de31a84a81d5454616ca2f15cf3254a234a49f
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Thu Dec 15 16:54:32 2016 +1300
+
+    Updated module definition for mqtt to suppler later versions of nodejs and mqtt
+
+commit 6d8079803e3328ebe6cb4b9fb05fb24513b9882a
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Mon Nov 28 07:55:05 2016 +1300
+
+    Updated package and added Change Log
+
+commit a5d547930192634e716b4fb46ba9aad4b081395c
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Mon Nov 28 07:54:13 2016 +1300
+
+    Updated package and added Change Log
+
 commit 1659f933ad09b4f69d0aaeb0c45faef0dfc21fe1
 Merge: 8aea07d 7d60505
 Author: Andrew McClure <andrew@southweb.co.nz>
