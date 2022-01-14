@@ -1,29 +1,151 @@
-commit 74de31a84a81d5454616ca2f15cf3254a234a49f
+commit 2b02aa353b575fb692c6f6c8c45705c7a39cab1c
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Thu Dec 15 16:54:32 2016 +1300
+Date:   Wed Jul 22 11:59:00 2015 +1200
 
-    Updated module definition for mqtt to suppler later versions of nodejs and mqtt
+    Initial commit
 
-commit 6d8079803e3328ebe6cb4b9fb05fb24513b9882a
+commit 55ad9227fc0c80ce1814a8daa0bd5e0d99eab84c
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Mon Nov 28 07:55:05 2016 +1300
+Date:   Wed Jul 22 12:02:54 2015 +1200
 
-    Updated package and added Change Log
+    Tidy README
 
-commit a5d547930192634e716b4fb46ba9aad4b081395c
+commit f3f78cd3b7a25c15dd388ba608799e7e6bcc7097
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Mon Nov 28 07:54:13 2016 +1300
+Date:   Wed Jul 22 12:03:03 2015 +1200
 
-    Updated package and added Change Log
+    Tidy README
 
-commit 1659f933ad09b4f69d0aaeb0c45faef0dfc21fe1
-Merge: 8aea07d 7d60505
+commit 9a6143d374ff537a9aa2c123ec130807703a5d0d
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Sun Nov 27 05:38:53 2016 +1300
+Date:   Wed Jul 22 12:04:55 2015 +1200
 
-    Merge pull request #3 from hoblins/hoblins-patch-nodejs-6.9.1-7.2.0
+    Tidy README
+
+commit 20a4307981db20803e0f9400a1e74ac1ff6e6aaf
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Wed Jul 22 12:31:18 2015 +1200
+
+    Tidy README
+
+commit 3c0d07033a97b2ca55d66bd9e572d3d5235bf10f
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Wed Jul 22 22:31:36 2015 +1200
+
+    improved logging
+
+commit 5b3fc2d20ebe93623263335c4fda1bcba673e62f
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Thu Jul 23 19:35:22 2015 +1200
+
+    removed merge dependency
+
+commit 1304cd925027eb515594fe30f23a536894c421ba
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Thu Jul 23 21:06:17 2015 +1200
+
+    Add ability to customise topic before publish
+
+commit 45f2df29dfe2c2e194f859f4ed44c115d3317dcb
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Thu Jul 23 21:16:45 2015 +1200
+
+    Add ability to customise topic before publish
+
+commit b3f65389006b683da383bec807a21f837e8d9e37
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Mon Jul 27 10:30:36 2015 +1200
+
+    bumped version
+
+commit 9a954dfc2ba964b07297274e9ecfd03d6f7ee705
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Mon Jul 27 10:47:28 2015 +1200
+
+    Improved error and OPC hostname handling
+
+commit 7e9d195bd3a705a266042aad3faedcaa36420936
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Fri Jul 31 08:00:26 2015 +1200
+
+    - Made debug a global function
+    - Cast topic/payload from backward handlers toString
+    - Added roundtrip option that optionally limits all updates to onMessage
+    - Added opcName and roundtrip options to example script
+
+commit 27f64417e40787aa86b1f74eac8afe0ce6361898
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Fri Jul 31 08:02:49 2015 +1200
+
+    bumped version
+
+commit b959f58dd317590239940074e9aa06cf320f47be
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Fri Jul 31 08:11:35 2015 +1200
+
+    changed dependency name
+
+commit a3099709cb93e3411cdfea3ba3b2969c6d7bff42
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Fri Jul 31 09:52:32 2015 +1200
+
+    mqtt2opcua.js
     
-    Hoblins patch for nodejs 6.9.1 and 7.2.0
+    Add debug on Publish.  Fixed roundtrip mode
+
+commit 8a4345ea5740132ec9bc3badfafad7e898799329
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Sun Aug 2 11:24:52 2015 +1200
+
+    v0.0.13 lucky for some
+
+commit ce7f91d30ec4f5960f71c9fa2e8fa51f6c58b24c
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Sun Aug 2 11:48:13 2015 +1200
+
+    Updated README
+
+commit 340571bc6d6f74fa468f22c4f5d9fecf275e1e02
+Author: accyroy <accyroy@gmail.com>
+Date:   Thu Oct 20 06:50:41 2016 -0400
+
+    Ignition V7.9 cannot cope with space in opcName
+
+commit c857656fe9842980fbdbb3f46d1075e8213b5a43
+Author: accyroy <accyroy@gmail.com>
+Date:   Thu Oct 20 07:03:36 2016 -0400
+
+    Implemented addressSpace updates broken with node-opcua v0.0.48
+
+commit 4b5fb989bebd26e0023401a3aeb389271b90c3a1
+Author: accyroy <accyroy@gmail.com>
+Date:   Thu Oct 20 13:26:23 2016 -0400
+
+    Added authentication to the MQTT instance. Changed default payload to be a string.
+
+commit 8aea07dcf7ab0d58f071edb0c750d21b8154b6bb
+Merge: ce7f91d 4b5fb98
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Fri Oct 21 19:06:37 2016 +1300
+
+    Merge pull request #2 from accyroy/master
+    
+    Fixed to work with V7.9 of Ignition and Latest version 0.0.57 of node-opcua
+
+commit c614cf564c218d82441c18137700ed0dbe480efe
+Author: hoblins <hoblins@users.noreply.github.com>
+Date:   Sat Nov 26 10:59:24 2016 +0100
+
+    Add files via upload
+
+commit db025efc77b0500846b4191a93f799e4985bc31f
+Merge: 8aea07d c614cf5
+Author: hoblins <hoblins@users.noreply.github.com>
+Date:   Sat Nov 26 11:02:08 2016 +0100
+
+    Merge pull request #1 from hoblins/hoblins-patch-nodejs-6.9.1-7.2.0
+    
+    Add files via upload
 
 commit 7d60505c958e3a9010228b761adf0bdfc7a6627f
 Author: hoblins <hoblins@users.noreply.github.com>
@@ -38,153 +160,41 @@ Date:   Sat Nov 26 11:13:22 2016 +0100
     Ubuntu 16.10 64 bit
     Kernel 4.8.0-28-generic
 
-commit db025efc77b0500846b4191a93f799e4985bc31f
-Merge: 8aea07d c614cf5
-Author: hoblins <hoblins@users.noreply.github.com>
-Date:   Sat Nov 26 11:02:08 2016 +0100
+commit 1659f933ad09b4f69d0aaeb0c45faef0dfc21fe1
+Merge: 8aea07d 7d60505
+Author: Andrew McClure <andrew@southweb.co.nz>
+Date:   Sun Nov 27 05:38:53 2016 +1300
 
-    Merge pull request #1 from hoblins/hoblins-patch-nodejs-6.9.1-7.2.0
+    Merge pull request #3 from hoblins/hoblins-patch-nodejs-6.9.1-7.2.0
     
-    Add files via upload
+    Hoblins patch for nodejs 6.9.1 and 7.2.0
 
-commit c614cf564c218d82441c18137700ed0dbe480efe
-Author: hoblins <hoblins@users.noreply.github.com>
-Date:   Sat Nov 26 10:59:24 2016 +0100
-
-    Add files via upload
-
-commit 8aea07dcf7ab0d58f071edb0c750d21b8154b6bb
-Merge: ce7f91d 4b5fb98
+commit a5d547930192634e716b4fb46ba9aad4b081395c
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Fri Oct 21 19:06:37 2016 +1300
+Date:   Mon Nov 28 07:54:13 2016 +1300
 
-    Merge pull request #2 from accyroy/master
-    
-    Fixed to work with V7.9 of Ignition and Latest version 0.0.57 of node-opcua
+    Updated package and added Change Log
 
-commit 4b5fb989bebd26e0023401a3aeb389271b90c3a1
-Author: accyroy <accyroy@gmail.com>
-Date:   Thu Oct 20 13:26:23 2016 -0400
-
-    Added authentication to the MQTT instance. Changed default payload to be a string.
-
-commit c857656fe9842980fbdbb3f46d1075e8213b5a43
-Author: accyroy <accyroy@gmail.com>
-Date:   Thu Oct 20 07:03:36 2016 -0400
-
-    Implemented addressSpace updates broken with node-opcua v0.0.48
-
-commit 340571bc6d6f74fa468f22c4f5d9fecf275e1e02
-Author: accyroy <accyroy@gmail.com>
-Date:   Thu Oct 20 06:50:41 2016 -0400
-
-    Ignition V7.9 cannot cope with space in opcName
-
-commit ce7f91d30ec4f5960f71c9fa2e8fa51f6c58b24c
+commit 6d8079803e3328ebe6cb4b9fb05fb24513b9882a
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Sun Aug 2 11:48:13 2015 +1200
+Date:   Mon Nov 28 07:55:05 2016 +1300
 
-    Updated README
+    Updated package and added Change Log
 
-commit 8a4345ea5740132ec9bc3badfafad7e898799329
+commit 74de31a84a81d5454616ca2f15cf3254a234a49f
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Sun Aug 2 11:24:52 2015 +1200
+Date:   Thu Dec 15 16:54:32 2016 +1300
 
-    v0.0.13 lucky for some
+    Updated module definition for mqtt to suppler later versions of nodejs and mqtt
 
-commit a3099709cb93e3411cdfea3ba3b2969c6d7bff42
+commit beb95f89f97311ae1865647840dae7779031b721
 Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Fri Jul 31 09:52:32 2015 +1200
+Date:   Thu Dec 15 16:54:47 2016 +1300
 
-    mqtt2opcua.js
-    
-    Add debug on Publish.  Fixed roundtrip mode
+    Updated module definition for mqtt to suppler later versions of nodejs and mqtt
 
-commit b959f58dd317590239940074e9aa06cf320f47be
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Fri Jul 31 08:11:35 2015 +1200
+commit 5a0bde50814852fab7df14242facc587a71ef127
+Author: Andrew McClure <andrew@agsense.co.nz>
+Date:   Fri Jan 14 15:18:40 2022 +1300
 
-    changed dependency name
-
-commit 27f64417e40787aa86b1f74eac8afe0ce6361898
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Fri Jul 31 08:02:49 2015 +1200
-
-    bumped version
-
-commit 7e9d195bd3a705a266042aad3faedcaa36420936
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Fri Jul 31 08:00:26 2015 +1200
-
-    - Made debug a global function
-    - Cast topic/payload from backward handlers toString
-    - Added roundtrip option that optionally limits all updates to onMessage
-    - Added opcName and roundtrip options to example script
-
-commit 9a954dfc2ba964b07297274e9ecfd03d6f7ee705
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Mon Jul 27 10:47:28 2015 +1200
-
-    Improved error and OPC hostname handling
-
-commit b3f65389006b683da383bec807a21f837e8d9e37
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Mon Jul 27 10:30:36 2015 +1200
-
-    bumped version
-
-commit 45f2df29dfe2c2e194f859f4ed44c115d3317dcb
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Thu Jul 23 21:16:45 2015 +1200
-
-    Add ability to customise topic before publish
-
-commit 1304cd925027eb515594fe30f23a536894c421ba
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Thu Jul 23 21:06:17 2015 +1200
-
-    Add ability to customise topic before publish
-
-commit 5b3fc2d20ebe93623263335c4fda1bcba673e62f
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Thu Jul 23 19:35:22 2015 +1200
-
-    removed merge dependency
-
-commit 3c0d07033a97b2ca55d66bd9e572d3d5235bf10f
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 22:31:36 2015 +1200
-
-    improved logging
-
-commit 20a4307981db20803e0f9400a1e74ac1ff6e6aaf
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 12:31:18 2015 +1200
-
-    Tidy README
-
-commit 9a6143d374ff537a9aa2c123ec130807703a5d0d
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 12:04:55 2015 +1200
-
-    Tidy README
-
-commit f3f78cd3b7a25c15dd388ba608799e7e6bcc7097
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 12:03:03 2015 +1200
-
-    Tidy README
-
-commit 55ad9227fc0c80ce1814a8daa0bd5e0d99eab84c
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 12:02:54 2015 +1200
-
-    Tidy README
-
-commit 2b02aa353b575fb692c6f6c8c45705c7a39cab1c
-Author: Andrew McClure <andrew@southweb.co.nz>
-Date:   Wed Jul 22 11:59:00 2015 +1200
-
-    Initial commit
-
-
+    Bumped version to 1.0.0
